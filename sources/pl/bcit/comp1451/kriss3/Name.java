@@ -1,5 +1,6 @@
 package pl.bcit.comp1451.kriss3;
 
-public class Name {
+public class Name 
+{
 
 }
