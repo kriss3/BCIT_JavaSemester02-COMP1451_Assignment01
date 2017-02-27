@@ -25,10 +25,9 @@ public class ShoeStore extends Store
 		addShoes();
 	}
 	
-	/*public Shoe(double weightKg, double manufacturingPriceDollars, double suggestedPriceDollars, String uniqueId,
-			Material meterial, int size, Name designer, ShoeType shoeType, Color color) 
-	 * 
-	 * 
+	/*
+	 * public Shoe(double weightKg, double manufacturingPriceDollars, double suggestedPriceDollars, String uniqueId,
+	 *		Material meterial, int size, Name designer, ShoeType shoeType, Color color) 
 	 */
 	private void addShoes()
 	{
@@ -36,10 +35,15 @@ public class ShoeStore extends Store
 		Department department = Department.MEN;
 		Color color = Color.DARK_GRAY;
 		Material material = Material.LEATHER;
-		Shoe s = new Shoe(1, 58.5, 90, "1234", material, 10, name, color,department);
+		Shoe s = new Shoe(1, 58.5, 90, "0001", material, 10, name, color,department);
 		addItem(s);
 		
-		
-		
+		name = new Name("Robert Cobbler");
+		department = Department.DRESS;
+		color = Color.BLACK;
+		material = Material.LEATHER;
+		s = new Shoe(1.15, 104, 160, "0002", material, 12, name, color,department);
+		addItem(s);
+	
 	}
 }
