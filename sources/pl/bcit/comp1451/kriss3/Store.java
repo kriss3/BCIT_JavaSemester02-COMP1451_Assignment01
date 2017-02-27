@@ -9,11 +9,13 @@ public class Store
 	private String name;
 	private HashMap<String, Item> mapOfItems;
 	
-	public Store(Address streetAddress, String name, HashMap<String, Item> mapOfItems) {
+	
+	public Store(Address streetAddress, String name) 
+	{
+		setStreetAddress(streetAddress);
+		setName(name);
+		mapOfItems = new HashMap<>();
 		
-		this.streetAddress = streetAddress;
-		this.name = name;
-		this.mapOfItems = mapOfItems;
 	}
 
 	public Address getStreetAddress() 

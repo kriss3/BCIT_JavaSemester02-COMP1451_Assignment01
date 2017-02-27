@@ -31,4 +31,9 @@ public enum BookType
     {
         return theBookType;
     }
+    
+    public static BookType get(String theBookType)
+    {
+    	return lookup.get(theBookType);
+    }
 }

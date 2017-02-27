@@ -21,7 +21,7 @@ public class Item
 		setWeightKg(weightKg);
 		setManufacturingPriceDollars(manufacturingPriceDollars);
 		setSuggestedPriceDollars(suggestedPriceDollars);
-		setUniqueId(uniqueId);
+		setUniqueId();
 	}
 	
 	public double getWeightKg() 
@@ -59,14 +59,9 @@ public class Item
 		return uniqueId;
 	}
 	
-	public void setUniqueId(String uniqueId) 
+	public void setUniqueId() 
 	{
 		UUID uuid = UUID.randomUUID();
-	    String randomUUIDString = uuid.toString();
-		
-	    if(uniqueId != null)
-		{
-	    	this.uniqueId = randomUUIDString;
-		}
+	    this.uniqueId = uuid.toString();
 	}
 }
