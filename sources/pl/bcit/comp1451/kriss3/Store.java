@@ -60,6 +60,7 @@ public class Store
 		return mapOfItems.get(key);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public Collection getCollectionOfItems()
 	{
 		return mapOfItems.values();

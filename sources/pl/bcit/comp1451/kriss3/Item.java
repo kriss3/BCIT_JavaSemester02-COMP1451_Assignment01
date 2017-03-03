@@ -15,7 +15,6 @@ public class Item
 	private double suggestedPriceDollars;
 	private String uniqueId;
 	public Item(double weightKg, double manufacturingPriceDollars, double suggestedPriceDollars, String uniqueId) 
-	
 	{
 		
 		setWeightKg(weightKg);
