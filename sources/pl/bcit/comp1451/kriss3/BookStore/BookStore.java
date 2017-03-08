@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
 import pl.bcit.comp1451.kriss3.Address;
 import pl.bcit.comp1451.kriss3.Date;
@@ -174,7 +175,7 @@ public class BookStore extends Store
 		if(genre == null)
 			System.out.println("Fix genre !!!");
 		
-		Collection<Book> books 	= getCollectionOfItems(); // From the Store class
+		Collection<Book> books = getCollectionOfItems(); // From the Store class
 		for(Book b : books)
 		{
 			if(b.getGenreString().equals(genre))
@@ -203,25 +204,40 @@ public class BookStore extends Store
 			System.out.println("Fix the day !!!");
 		
 		Collection<Book> books 	= getCollectionOfItems(); // From the Store class
+		int bookCount=0;
 		for(Book b : books)
 		{
 			//get the method that returns String of the Day from the Date
+			if(b.getAuthor().getBirthDate().getDayOfTheWeek().equals(dayOfTheWeek))
+			{
+				System.out.println(b.getTitle() + " was writtern by " + b.getAuthorFullName() + ", who was born on " + b.getAuthor().getBirthDate().getDayOfTheWeek());
+			}
+			else
+				bookCount++;
 		}
+		if(bookCount==0)
+			System.out.println("No authors were born on " + dayOfTheWeek);
+		
 	}
 
-	//NOT FINISHED
 	public void displayAllBooksPublishedOn(String dayOfTheWeek)
 	{
-		Collection<Book> books 	= getCollectionOfItems(); // From the Store class
-		
+		Collection<Book> books 	=  getCollectionOfItems(); // From the Store class
+		int bookCount = 0;
 		for(Book b : books)
 		{
-			
+			if(b.getDatePublished().getDayOfTheWeek().equals(dayOfTheWeek))
+			{
+				System.out.println(b.getTitle() + " was written by " + b.getAuthorFullName() + ", which was published on " + b.getDatePublished().getDayOfTheWeek());
+			} else
+				bookCount++;
 		}
+		if(bookCount >= 0)
+			System.out.println("No Bookes were published on " + dayOfTheWeek);
 	}
 
-	//NOT FINISHED
-	public void displayAllBooksWritenByAuthorsWithAPseudoniym()
+
+	public void displayAllBooksWrittenByAuthorsWithAPseudonym()
 	{
 		Collection<Book> books 	= getCollectionOfItems(); // From the Store class
 		
@@ -230,11 +246,11 @@ public class BookStore extends Store
 			if(!b.getAuthor().getPseudonym().equals(""))
 			{
 				System.out.println(b.getAuthorFullName() + " wrote " + b.getTitle() + " as " + b.getAuthor().getPseudonym());
-			}
-				
+			}	
 		}
 	}
 	
+	//NOT FINISHED
 	public void displayBookWithBiggestPercentageMarkup()
 	{
 		Collection<Book> books 	= getCollectionOfItems(); // From the Store class
@@ -262,4 +278,10 @@ public class BookStore extends Store
 	    	System.out.println("No books by authors over age " + ageInYears);  
 	    }
 	}
+	
+	public void displayAllBooksWrittenOutsideSpecialty()
+	{
+		Collection<Book> books 	= getCollectionOfItems(); // From the Store class
+	}
+	
 }

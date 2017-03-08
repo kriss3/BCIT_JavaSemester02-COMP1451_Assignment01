@@ -2,6 +2,7 @@ package pl.bcit.comp1451.kriss3;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Set;
 
 public class Store 
 {
@@ -60,7 +61,6 @@ public class Store
 		return mapOfItems.get(key);
 	}
 	
-	@SuppressWarnings("rawtypes")
 	public Collection getCollectionOfItems()
 	{
 		return mapOfItems.values();

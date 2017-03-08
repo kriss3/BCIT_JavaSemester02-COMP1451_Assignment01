@@ -1,3 +1,5 @@
+package pl.bcit.comp1451.kriss3;
+
 import static org.junit.Assert.*;
 import org.junit.Test;
 

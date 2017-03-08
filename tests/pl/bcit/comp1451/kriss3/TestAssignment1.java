@@ -7,8 +7,9 @@ import org.junit.Test;
 
 import pl.bcit.comp1451.kriss3.BookStore.BookStore;
 import pl.bcit.comp1451.kriss3.BookStore.BookType;
+import pl.bcit.comp1451.kriss3.ShoeStore.Department;
+import pl.bcit.comp1451.kriss3.ShoeStore.Material;
 import pl.bcit.comp1451.kriss3.ShoeStore.ShoeStore;
-import pl.bcit.comp1451.kriss3.ShoeStore.ShoeType;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -55,7 +56,7 @@ public class TestAssignment1
     private static ShoeStore shoeStore = new ShoeStore(
         new Address("789", "East 1st Street", "West Vancouver", "V3A 7A4"),
         "My Shoes",
-        ShoeType.CHILDREN
+        Department.CHILDREN
     );
     
     private static PrintStream stdOut = System.out;

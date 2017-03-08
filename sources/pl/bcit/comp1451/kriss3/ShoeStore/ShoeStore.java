@@ -46,4 +46,32 @@ public class ShoeStore extends Store
 		addItem(s);
 	
 	}
+
+	public void displayAllShoesAndDesigners()
+	{
+		System.out.println();
+	}
+	
+	public void displayAllShoesByDesigner(String designerName)
+	{
+		System.out.println("");
+	}
+	
+	public void displayAllShoesMadeOf(Material material)
+	{
+		
+	}
+	
+	public void displayAllShoesMadeOf(String material){}
+	public void displayNumberOfShoesDesignedBy(Name designer){}
+	public void displayNumberOfShoesDesignedBy(String designerLastName){}
+	public void displaySmallestShoeSize() {}
+	public void displayTotalWeightKgOfAllShoes(){}
+	public void displayAllShoesOfThisMaterialMadeByThisDesigner(Material m, Name designer){}
+	
+	
+	
+	// e.g. For a shoe store with department “WOMEN”, show all the shoes of type MEN, CHILDREN, SPORTS, and DRESS
+	public void displayAllShoesNotInMatchingStore() {}
+
 }
