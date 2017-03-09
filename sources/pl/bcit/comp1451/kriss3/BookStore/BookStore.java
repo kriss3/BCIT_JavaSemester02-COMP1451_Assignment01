@@ -13,10 +13,17 @@ import pl.bcit.comp1451.kriss3.Item;
 import pl.bcit.comp1451.kriss3.Store;
 import pl.bcit.comp1451.kriss3.Name;
 
+/**
+ * BookStor class to imitate BookStore
+ * @author Krzysztof Szczurowski
+ * @see https://github.com/kriss3/BCIT_JavaSemester02-COMP1451_Assignment01.git
+ * @since 2017-02-15
+ */
 public class BookStore extends Store
 {
 	private BookType speciality;
 	
+	//Ctor
 	public BookStore(Address address, String name, BookType speciality)
 	{
 		super(address, name);
@@ -106,7 +113,8 @@ public class BookStore extends Store
 	      b = new Book(1.0, 3, 13, "mnop", author, datePublished, title, genre);
 	      addItem(b);             
 	}
-
+	
+	//public methods
 	public void displayAllBooksByEveryAuthor()
 	{
 		//example: Gladwell wrote The Tipping Point in 2000
@@ -114,7 +122,7 @@ public class BookStore extends Store
 		
 		for(Book b : books)
 		{
-			System.out.println(b.getAuthor().getName().getLastName() + " wrote " + b.getTitle() + " in "  + b.getDatePublished());
+			System.out.println(b.getAuthor().getName().getLastName() + " wrote " + b.getTitle() + " in "  + b.getDatePublished().getYear());
 		}
 	}
 	
@@ -149,7 +157,7 @@ public class BookStore extends Store
 		{
 			if(b.getDatePublished().getYear() < year)
 			{
-				System.out.println(b.getAuthor().getName().getLastName() + " wrote " + b.getTitle() + " in " + b.getYearPublished() + ", which is before " + year);
+				System.out.println(b.getTitle() + " was published in " + b.getDatePublished().getYear() + ", which is before " + year);
 			}
 		}
 	}
@@ -158,15 +166,21 @@ public class BookStore extends Store
 	{
 		if(pseudonym == null)
 		{
-			System.out.println("Fix the pseudonym !!");
+			System.out.println("Fix pseudonym!");
 		}
-		//Sallinger wrote The Catcher in the Rye as JD
-		Collection<Book> books 	= getCollectionOfItems(); // From the Store class
-		for(Book b : books)
+		else
 		{
-			if(b.getAuthor().getPseudonym().equals(pseudonym))
+			//Sallinger wrote The Catcher in the Rye as JD
+			Collection<Book> books 	= getCollectionOfItems(); // From the Store class
+			for(Book b : books)
 			{
-				System.out.println(b.getAuthor().getName().getLastName() + " wrote " + b.getTitle() + " in " + b.getYearPublished() + ", as " + b.getAuthor().getPseudonym());
+				if(b.getAuthor().getPseudonym() != null)
+				{
+					if(b.getAuthor().getPseudonym().equals(pseudonym))
+					{
+						System.out.println(b.getAuthor().getName().getLastName() + " wrote " + b.getTitle() + " as " + b.getAuthor().getPseudonym());
+					}
+				}
 			}
 		}
 	}
@@ -176,12 +190,12 @@ public class BookStore extends Store
 		if(genre == null)
 			System.out.println("Fix genre !!!");
 		
-		Collection<Book> books = getCollectionOfItems(); // From the Store class
+		Collection<Book> books = getCollectionOfItems();
 		for(Book b : books)
 		{
 			if(b.getGenreString().equals(genre))
 			{
-				System.out.println(b.getTitle() + " is a " + b.getGenreString() + " written by " + b.getAuthor());
+				System.out.println(b.getTitle() + " is a " + b.getGenre().toString().toLowerCase() + " book written by " + b.getAuthor().getName().getLastName());
 			}
 		}
 	}
@@ -196,47 +210,50 @@ public class BookStore extends Store
 			totalWeight += b.getWeightKg();
 		}
 		
-		System.out.println("Total Kg of Books: " + totalWeight);
+		System.out.println("total kg of books: " + totalWeight);
 	}
 	
 	public void displayAllBooksWrittenByAuthorsBornOn(String dayOfTheWeek)
 	{
+		boolean noResults = true;
 		if(dayOfTheWeek == null)
-			System.out.println("Fix the day !!!");
-		
-		Collection<Book> books = getCollectionOfItems(); 
-		int bookCount=0;
-		for(Book b : books)
 		{
-			//get the method that returns String of the Day from the Date
-			if(b.getAuthor().getBirthDate().getDayOfTheWeek().equals(dayOfTheWeek))
-			{
-				System.out.println(b.getTitle() + " was writtern by " + b.getAuthorFullName() + ", who was born on " + b.getAuthor().getBirthDate().getDayOfTheWeek());
-			}
-			else
-				bookCount++;
+			System.out.println("Fix the day !!!");
 		}
-		if(bookCount==0)
-			System.out.println("No authors were born on " + dayOfTheWeek);
+		else
+		{	
+			Collection<Book> books = getCollectionOfItems(); 
+			for(Book b : books)
+			{
+				//get the method that returns String of the Day from the Date
+				String day = b.getAuthor().getBirthDate().getDayOfTheWeek();
+				if(day.equals(dayOfTheWeek))
+				{
+					System.out.println(b.getTitle() + " was written by " + b.getAuthor().getName().getLastName() + ", who was born on a " + day);
+					noResults = false;
+				}
+			}
+		}
 		
+		if(noResults)
+			System.out.println("No authors were born on a " + dayOfTheWeek);
 	}
 
 	public void displayAllBooksPublishedOn(String dayOfTheWeek)
 	{
 		Collection<Book> books 	=  getCollectionOfItems(); // From the Store class
-		int bookCount = 0;
+		boolean noResults = true;
 		for(Book b : books)
 		{
 			if(b.getDatePublished().getDayOfTheWeek().equals(dayOfTheWeek))
 			{
-				System.out.println(b.getTitle() + " was written by " + b.getAuthorFullName() + ", which was published on " + b.getDatePublished().getDayOfTheWeek());
-			} else
-				bookCount++;
+				System.out.println(b.getTitle() + " was written by " + b.getAuthor().getName().getLastName() + ", which was published on a " + b.getDatePublished().getDayOfTheWeek());
+				noResults = false;
+			}
 		}
-		if(bookCount >= 0)
-			System.out.println("No Bookes were published on " + dayOfTheWeek);
+		if(noResults)
+			System.out.println("No books were published on a " + dayOfTheWeek);
 	}
-
 
 	public void displayAllBooksWrittenByAuthorsWithAPseudonym()
 	{
@@ -244,9 +261,10 @@ public class BookStore extends Store
 		
 		for(Book b : books)
 		{
-			if(!b.getAuthor().getPseudonym().equals(""))
+			String pseud = b.getAuthor().getPseudonym();
+			if(pseud !=null && !pseud.equals(""))
 			{
-				System.out.println(b.getAuthorFullName() + " wrote " + b.getTitle() + " as " + b.getAuthor().getPseudonym());
+				System.out.println(b.getAuthor().getName().getLastName() + " wrote " + b.getTitle() + " as " + b.getAuthor().getPseudonym());
 			}	
 		}
 	}
@@ -261,7 +279,7 @@ public class BookStore extends Store
 		Book tempB = null;
 		for(Book b : books)
 		{
-			markup = 100 * (b.getSuggestedPriceDollars() - b.getManufacturingPriceDollars()) / b.getManufacturingPriceDollars();
+			markup = (100 * (b.getSuggestedPriceDollars() - b.getManufacturingPriceDollars())) / b.getManufacturingPriceDollars();
 			if(markup > tempMarkup)
 			{
 				tempMarkup = markup;
@@ -269,7 +287,7 @@ public class BookStore extends Store
 			}
 		}
 		
-		System.out.println("Highest markup is " + markup + "%, for " + tempB.getTitle() + " by " + tempB.getAuthorFullName());
+		System.out.println("Highest markup is " + tempMarkup + "%, for " + tempB.getTitle() + " by " + tempB.getAuthor().getName().getLastName());
 	}
 	
 	public void displayAllBooksWrittenByAuthorsOverThisAge(int ageInYears)
@@ -301,10 +319,13 @@ public class BookStore extends Store
 		
 		for(Book b : books)
 		{
-			if(!(b.getGenre().getTheBookType().equals(this.speciality.getTheBookType())))
+			if(b.getGenre().equals(speciality))
+				continue;
+			else
 			{
-				System.out.println(b.getAuthor().getName().getLastName() + " usually wrote " + b.getAuthor().getGenre() + 
-						" but wrote " + b.getTitle() + " which is " + b.getGenreString());
+					
+				System.out.println(b.getAuthor().getName().getLastName() + " usually wrote " + b.getAuthor().getGenre().toString().toLowerCase() + 
+						" but wrote " + b.getTitle() + " which is " + b.getGenre().toString().toLowerCase());
 			}
 		}
 	}
