@@ -1,6 +1,7 @@
 package pl.bcit.comp1451.kriss3.BookStore;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
@@ -187,7 +188,7 @@ public class BookStore extends Store
 	
 	public void displayTotalWeightKgOfAllBooks()
 	{
-		Collection<Book> books 	= getCollectionOfItems(); // From the Store class
+		Collection<Book> books 	= getCollectionOfItems();
 		
 		double totalWeight = 0.0;
 		for(Book b : books)
@@ -203,7 +204,7 @@ public class BookStore extends Store
 		if(dayOfTheWeek == null)
 			System.out.println("Fix the day !!!");
 		
-		Collection<Book> books 	= getCollectionOfItems(); // From the Store class
+		Collection<Book> books = getCollectionOfItems(); 
 		int bookCount=0;
 		for(Book b : books)
 		{
@@ -250,10 +251,25 @@ public class BookStore extends Store
 		}
 	}
 	
-	//NOT FINISHED
 	public void displayBookWithBiggestPercentageMarkup()
 	{
-		Collection<Book> books 	= getCollectionOfItems(); // From the Store class
+		//markup % = 100 * (revenue - cost) / cost
+		Collection<Book> books 	= getCollectionOfItems();
+		
+		double markup = 0.0;
+		double tempMarkup = 0.0;
+		Book tempB = null;
+		for(Book b : books)
+		{
+			markup = 100 * (b.getSuggestedPriceDollars() - b.getManufacturingPriceDollars()) / b.getManufacturingPriceDollars();
+			if(markup > tempMarkup)
+			{
+				tempMarkup = markup;
+				tempB = b;
+			}
+		}
+		
+		System.out.println("Highest markup is " + markup + "%, for " + tempB.getTitle() + " by " + tempB.getAuthorFullName());
 	}
 	
 	public void displayAllBooksWrittenByAuthorsOverThisAge(int ageInYears)
@@ -281,7 +297,16 @@ public class BookStore extends Store
 	
 	public void displayAllBooksWrittenOutsideSpecialty()
 	{
-		Collection<Book> books 	= getCollectionOfItems(); // From the Store class
+		Collection<Book> books 	= getCollectionOfItems();
+		
+		for(Book b : books)
+		{
+			if(!(b.getGenre().getTheBookType().equals(this.speciality.getTheBookType())))
+			{
+				System.out.println(b.getAuthor().getName().getLastName() + " usually wrote " + b.getAuthor().getGenre() + 
+						" but wrote " + b.getTitle() + " which is " + b.getGenreString());
+			}
+		}
 	}
 	
 }
