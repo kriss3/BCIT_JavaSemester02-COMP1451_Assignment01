@@ -286,8 +286,8 @@ public class BookStore extends Store
 				tempB = b;
 			}
 		}
-		
-		System.out.println("Highest markup is " + tempMarkup + "%, for " + tempB.getTitle() + " by " + tempB.getAuthor().getName().getLastName());
+		//"Highest markup is " + tempMarkup + "%, for " + tempB.getTitle() + " by " + tempB.getAuthor().getName().getLastName()
+		System.out.println(String.format("Highest markup is %.13f%%, for %s by %s", tempMarkup, tempB.getTitle(), tempB.getAuthor().getName().getLastName()));
 	}
 	
 	public void displayAllBooksWrittenByAuthorsOverThisAge(int ageInYears)
@@ -316,14 +316,17 @@ public class BookStore extends Store
 	public void displayAllBooksWrittenOutsideSpecialty()
 	{
 		Collection<Book> books 	= getCollectionOfItems();
+		Iterator<Book> itr = books.iterator();
 		
-		for(Book b : books)
+		while (itr.hasNext()) 
 		{
-			if(b.getGenre().equals(speciality))
+			Book b = itr.next();
+			if(b.getAuthor().getGenre().equals(b.getGenre()))
+			{
 				continue;
+			}
 			else
 			{
-					
 				System.out.println(b.getAuthor().getName().getLastName() + " usually wrote " + b.getAuthor().getGenre().toString().toLowerCase() + 
 						" but wrote " + b.getTitle() + " which is " + b.getGenre().toString().toLowerCase());
 			}

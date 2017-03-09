@@ -304,7 +304,7 @@ public class TestAssignment1
     @Test
     public void testBookWithBiggestPercentageMarkup()
     {
-        final String EXPECTED = "Highest markup is 333.33333333333333%, for Surely You're Joking Mr. Feynman by Feynman"
+        final String EXPECTED = "Highest markup is 333.3333333333333%, for Surely You're Joking Mr. Feynman by Feynman"
             + NEWLINE + "";
 
         bookStore.displayBookWithBiggestPercentageMarkup();
