@@ -73,14 +73,4 @@ public class Shoe extends Item
 	{
 		this.color = color;
 	}
-	
-	public void setDescription()
-	{
-		super.setUniqueId();
-	}
-	
-	public String getDescription()
-	{
-		return super.getUniqueId();
-	}
 }

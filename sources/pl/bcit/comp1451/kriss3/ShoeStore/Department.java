@@ -5,7 +5,7 @@ import java.util.Map;
 
 public enum Department 
 {
-	WOMAN("woman"),
+	WOMEN("women"),
 	MEN("men"),
 	CHILDREN("children"),
 	SPORTS("sports"),
@@ -37,7 +37,6 @@ public enum Department
 	{
 		return lookup.get(theDepartment);
 	}
-	
 }
 
 

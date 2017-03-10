@@ -1,17 +1,13 @@
 package pl.bcit.comp1451.kriss3;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Name 
 {
 	private String firstName;
 	private String middleName;
 	private String lastName;
-	
-	public Name(String firstName, String middleName, String lastName) 
-	{
-		setFirstName(firstName);
-		setMiddleName(middleName);
-		setLastName(lastName);
-	}
 	
 	public Name(String name)
 	{
@@ -24,6 +20,13 @@ public class Name
 		setLastName(lastName);
 	}
 	
+	public Name(String firstName, String middleName, String lastName) 
+	{
+		setFirstName(firstName);
+		setMiddleName(middleName);
+		setLastName(lastName);
+	}
+	
 	public String getFirstName() 
 	{
 		return firstName;
@@ -31,7 +34,7 @@ public class Name
 	
 	public void setFirstName(String firstName) 
 	{
-		this.firstName = firstName == null || firstName.equals("") ? "Marry" : firstName;
+		this.firstName = firstName == null  ? "" : firstName;
 	}
 	
 	public String getMiddleName() 
@@ -41,7 +44,7 @@ public class Name
 	
 	public void setMiddleName(String middleName) 
 	{
-		this.middleName = middleName == null || middleName.equals("") ? "Jane" : middleName;
+		this.middleName = middleName == null ? "" : middleName;
 	}
 	
 	public String getLastName() 
@@ -51,16 +54,38 @@ public class Name
 	
 	public void setLastName(String lastName) 
 	{
-		this.lastName = lastName == null || lastName.equals("") ? "Poppins" : lastName;
+		this.lastName = lastName == null ? "" : lastName;
 	}
 	
-	public String getFullName(String...strings)
-	{
-		String result = null;
-		for(String s : strings)
+	public String getFullName()
+	{ 
+		// fistName ONLY
+		// lastName ONLY
+		
+		// fistName + lastName ONLY
+		// firstName + middleName + lastName;
+		
+		
+		String results = "";
+		
+		if(middleName == null && lastName == null)
 		{
-			result += s + " ";
+			results = String.format("%s", firstName, lastName);
 		}
-		return result;
+
+		if(middleName == null && firstName == null)
+		{
+			results = String.format("%s", lastName);
+		}
+		
+		if(firstName != null && lastName != null)
+		{
+			results = String.format("%s %s", firstName, lastName);
+		}
+		
+		if(firstName != null && middleName != null && lastName != null)
+			results = String.format("%s %s %s", firstName, middleName, lastName);
+		
+		return results;
 	}
 }

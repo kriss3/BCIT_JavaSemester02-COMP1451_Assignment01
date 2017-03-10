@@ -60,16 +60,6 @@ public class Book extends Item
 		this.genre = genre;
 	}
 	
-	public void setISBN()
-	{
-		super.setUniqueId();
-	}
-	
-	public String getISBN()
-	{
-		return super.getUniqueId();
-	}
-	
 	public int getYearPublished()
 	{
 		return this.datePublished.getYear();
@@ -77,8 +67,7 @@ public class Book extends Item
 	
 	public String getAuthorFullName()
 	{
-		return author.getName().getFullName(author.getName().getFullName(
-				new String[]{author.getName().getFirstName(), author.getName().getMiddleName(),author.getName().getLastName()}));
+		return author.getName().getFullName();
 	}
 	
 	public String getGenreString()
