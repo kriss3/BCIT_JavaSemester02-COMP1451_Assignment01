@@ -5,6 +5,11 @@ import java.awt.Color;
 import pl.bcit.comp1451.kriss3.Item;
 import pl.bcit.comp1451.kriss3.Name;
 
+/**
+ * Class Shoe to represent shoe objects in Shoe Store idea;
+ * @author Krzysztof Szczurowski
+ * @see https://github.com/kriss3/BCIT_JavaSemester02-COMP1451_Assignment01.git
+ */
 public class Shoe extends Item 
 {
 	private Material meterial;
@@ -65,7 +70,8 @@ public class Shoe extends Item
 		this.shoeTypeDepartment = shoeTypeDepartment;
 	}
 
-	public Color getColor() {
+	public Color getColor() 
+	{
 		return color;
 	}
 

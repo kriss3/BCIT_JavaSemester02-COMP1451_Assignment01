@@ -3,7 +3,11 @@ package pl.bcit.comp1451.kriss3;
 import java.util.Collection;
 import java.util.HashMap;
 
-
+/**
+ * Class Store to represent general Stor idea;
+ * @author Krzysztof Szczurowski
+ * @see https://github.com/kriss3/BCIT_JavaSemester02-COMP1451_Assignment01.git
+ */
 public class Store 
 {
 	private Address streetAddress;
@@ -19,6 +23,7 @@ public class Store
 		
 	}
 
+	//Public 
 	public Address getStreetAddress() 
 	{
 		return streetAddress;
@@ -65,6 +70,4 @@ public class Store
 	{
 		return mapOfItems.values();
 	}
-	
-	//private methods
 }

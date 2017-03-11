@@ -3,6 +3,11 @@ package pl.bcit.comp1451.kriss3.BookStore;
 import pl.bcit.comp1451.kriss3.Date;
 import pl.bcit.comp1451.kriss3.Item;
 
+/**
+ * Class book to represent Book objects;
+ * @author kszczurowski
+ * @see https://github.com/kriss3/BCIT_JavaSemester02-COMP1451_Assignment01.git
+ */
 public class Book extends Item
 {
 	private Author author;

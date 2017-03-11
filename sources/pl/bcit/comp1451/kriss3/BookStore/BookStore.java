@@ -313,6 +313,10 @@ public class BookStore extends Store
 	    }
 	}
 	
+	/**
+	 * Display all books written outside This shop speciality
+	 * It does not take any parameters
+	 */
 	public void displayAllBooksWrittenOutsideSpecialty()
 	{
 		Collection<Book> books 	= getCollectionOfItems();

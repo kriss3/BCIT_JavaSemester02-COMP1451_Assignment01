@@ -3,6 +3,11 @@ package pl.bcit.comp1451.kriss3.ShoeStore;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Enumeration to represent different Departments in Shoe Stores;
+ * @author kszczurowski
+ * @see https://github.com/kriss3/BCIT_JavaSemester02-COMP1451_Assignment01.git
+ */
 public enum Department 
 {
 	WOMEN("women"),

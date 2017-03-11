@@ -1,16 +1,17 @@
 package pl.bcit.comp1451.kriss3.ShoeStore;
 import java.awt.Color;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 
 import pl.bcit.comp1451.kriss3.Address;
-import pl.bcit.comp1451.kriss3.Item;
 import pl.bcit.comp1451.kriss3.Name;
 import pl.bcit.comp1451.kriss3.Store;
-import pl.bcit.comp1451.kriss3.BookStore.Book;
 
+/**
+ * ShoeStore class to represent object of Shoe Store;
+ * @author Krzysztof Szczurowski
+ * @see https://github.com/kriss3/BCIT_JavaSemester02-COMP1451_Assignment01.git
+ */
 public class ShoeStore extends Store 
 {
 	private Department department;
@@ -107,6 +108,8 @@ public class ShoeStore extends Store
 
 	public void displayAllShoesAndDesigners()
 	{
+		//Don't know why below error. Cannot find constructive ansser from uncle Google
+		//was trying List<T extends Item> shoes = getColleciton(); but no go;
 		shoes = getCollectionOfItems();
 		for(Shoe s : shoes)
 		{

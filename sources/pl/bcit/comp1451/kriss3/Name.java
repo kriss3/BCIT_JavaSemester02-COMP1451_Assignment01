@@ -1,8 +1,10 @@
 package pl.bcit.comp1451.kriss3;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
+/**
+ * Class Name to represent Name objects;
+ * @author Krzysztof Szczurowski
+ * @see https://github.com/kriss3/BCIT_JavaSemester02-COMP1451_Assignment01.git
+ */
 public class Name 
 {
 	private String firstName;
@@ -64,24 +66,16 @@ public class Name
 		
 		// fistName + lastName ONLY
 		// firstName + middleName + lastName;
-		
-		
 		String results = "";
 		
 		if(middleName == null && lastName == null)
-		{
 			results = String.format("%s", firstName, lastName);
-		}
 
 		if(middleName == null && firstName == null)
-		{
 			results = String.format("%s", lastName);
-		}
 		
 		if(firstName != null && lastName != null)
-		{
 			results = String.format("%s %s", firstName, lastName);
-		}
 		
 		if(firstName != null && middleName != null && lastName != null)
 			results = String.format("%s %s %s", firstName, middleName, lastName);

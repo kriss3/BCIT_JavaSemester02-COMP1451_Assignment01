@@ -3,6 +3,11 @@ package pl.bcit.comp1451.kriss3.BookStore;
 import pl.bcit.comp1451.kriss3.Date;
 import pl.bcit.comp1451.kriss3.Name;
 
+/**
+ * Class Author to represent Autor objects;
+ * @author kszczurowski
+ * @see https://github.com/kriss3/BCIT_JavaSemester02-COMP1451_Assignment01.git
+ */
 public class Author 
 {
 	private Date birthDate;

@@ -1,5 +1,10 @@
 package pl.bcit.comp1451.kriss3;
 
+/**
+ * Address class to represent Address objects
+ * @author kszczurowski
+ * @see https://github.com/kriss3/BCIT_JavaSemester02-COMP1451_Assignment01.git
+ */
 public class Address 
 {
 	private String streetNumber;
